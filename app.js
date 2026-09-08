@@ -3,6 +3,12 @@
   document.addEventListener("pointermove", (event) => { glow.style.left = event.clientX + "px"; glow.style.top = event.clientY + "px"; });
   const menu = document.querySelector(".menu-toggle");
   const nav = document.querySelector(".desktop-nav");
+  let studioClicks = 0;
+  document.getElementById("studio-trigger").addEventListener("click", (event) => {
+    event.preventDefault();
+    studioClicks += 1;
+    if (studioClicks >= 5) window.location.href = "/admin.html";
+  });
   menu.addEventListener("click", () => {
     const open = menu.getAttribute("aria-expanded") === "true";
     menu.setAttribute("aria-expanded", String(!open));
