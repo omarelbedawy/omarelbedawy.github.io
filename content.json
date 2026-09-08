@@ -1,0 +1,41 @@
+{
+  "settings": {
+    "visible": {
+      "about": true,
+      "work": true,
+      "stack": true,
+      "journey": true,
+      "archive": true,
+      "contact": true
+    },
+    "contact": "elbedawyomar2009@gmail.com",
+    "linkedin": "https://www.linkedin.com/",
+    "github": "https://github.com/",
+    "whatsapp": "https://wa.me/201000000000"
+  },
+  "hero": {
+    "title": "I build useful things<br><em>for real people.</em>",
+    "intro": "I’m Omar, a full-stack engineer and top-ranking STEM scholar from Egypt. I turn ambitious ideas into thoughtful products across web architecture, infrastructure, and human-centered AI."
+  },
+  "about": {
+    "title": "Technical depth.<br><em>Human context.</em>",
+    "lead": "The best technology feels inevitable: quietly powerful, beautifully considered, and made for the person on the other side of the screen.",
+    "copy": "From a factory floor to a funded AI pitch, I’ve learned that good engineering is less about showing off complexity and more about earning trust. I bring that mindset to every system, interface, and team I touch."
+  },
+  "journey": {
+    "title": "Still becoming.",
+    "intro": "The environments that shaped how I think, lead, and ship.",
+    "items": [
+      { "date": "2024 — NOW", "title": "Kafr El-Sheikh STEM High School", "text": "Top-ranking STEM scholar exploring full-stack systems and human-centered AI while preparing for a world-class CS education.", "current": true },
+      { "date": "2024", "title": "SPCS · Stanford Pre-Collegiate Studies", "text": "Summer program participant, learning alongside ambitious students and widening my view of what is possible." },
+      { "date": "2023 — 2024", "title": "DECI · Digital Egypt Cubs Initiative", "text": "Built a scalable e-commerce capstone and strengthened my foundations in architecture, deployment, and collaboration." },
+      { "date": "ONGOING", "title": "Factory floor · CNC laser operator", "text": "40+ hours a week building humility, precision, and grit far away from a comfortable desk." }
+    ]
+  },
+  "projects": [
+    { "title": "PixelGuard", "type": "NYAS · AI SAFETY", "text": "A privacy-first anti-scraping SaaS that injects adversarial noise into images to disrupt AI facial-recognition systems.", "tags": ["Adversarial ML", "SaaS", "Privacy"] },
+    { "title": "Hajiz <span class='arabic'>حاجز</span>", "type": "TRAVEL · BACKEND", "text": "A travel-sync backend connecting real-time aviation APIs with hotel reservations, helping travelers avoid costly no-show penalties.", "tags": ["Node.js", "APIs", "PostgreSQL"] },
+    { "title": "Commerce OS", "type": "DECI · CAPSTONE", "text": "A production-minded e-commerce platform designed as a scalable system, orchestrated with Docker and Kubernetes.", "tags": ["Docker", "Kubernetes", "MERN"] }
+  ],
+  "archive": []
+}
