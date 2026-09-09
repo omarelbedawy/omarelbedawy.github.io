@@ -78,7 +78,7 @@
     if (item.image) { card.style.setProperty("--project-image", `url("${item.image}")`); card.classList.add("has-project-image"); }
   });
 
-  const visibility = { about: "#about", work: "#work", stack: ".stack-section", archive: "#additions", contact: "#contact" };
+  const visibility = { about: "#about", work: "#work", archive: "#achievements", contact: "#contact" };
   Object.entries(visibility).forEach(([key, selector]) => { if (data.settings.visible[key] === false) document.querySelector(selector).hidden = true; });
 
   document.querySelector(".email-link").href = "mailto:" + data.settings.contact;
@@ -96,9 +96,9 @@
 
   const target = document.getElementById("dynamic-content");
   if (!data.archive.length) {
-    target.innerHTML = '<p class="dynamic-empty">The archive is growing. New milestones and field notes will appear here.</p>';
+    target.innerHTML = '<p class="dynamic-empty">Achievements are on the way — certificates and wins will appear here.</p>';
   } else {
-    target.innerHTML = '<div class="dynamic-grid">' + data.archive.map((item, index) => `<article class="dynamic-card">${item.image ? `<img src="${item.image}" alt="${item.title || "Omar Elbedawy archive file"}" data-open-file="archive-${index}">` : ""}<small class="section-label">${item.kind || "Archive"}</small><h3>${item.title || "Untitled"}</h3><p>${item.description || ""}</p>${item.file ? `<button type="button" class="project-arrow" data-open-file="archive-${index}">View file</button>` : ""}</article>`).join("") + "</div>";
+    target.innerHTML = '<div class="dynamic-grid">' + data.archive.map((item, index) => `<article class="dynamic-card">${item.image ? `<img src="${item.image}" alt="${item.title || "Omar Elbedawy achievement"}" data-open-file="archive-${index}">` : ""}<small class="section-label">${item.kind || "Archive"}</small><h3>${item.title || "Untitled"}</h3><p>${item.description || ""}</p>${item.file ? `<button type="button" class="project-arrow" data-open-file="archive-${index}">View file</button>` : ""}</article>`).join("") + "</div>";
     document.querySelectorAll('[data-open-file^="archive-"]').forEach((el) => {
       el.addEventListener("click", () => {
         const index = Number(el.dataset.openFile.split("-")[1]);
