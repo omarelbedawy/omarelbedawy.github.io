@@ -119,8 +119,24 @@
         status.className = "save-state status-bad";
       }
     });
-    document.getElementById("journey-editors").innerHTML = data.journey.items.map((item, index) => `<div class="editor-card"><div class="editor-card-header"><strong>Chapter ${String(index + 1).padStart(2, "0")}</strong><button type="button" class="remove-button" data-remove="${index}">Remove</button></div>${field("Date", `journey-${index}-date`, item.date)}${field("Title", `journey-${index}-title`, item.title)}${field("Description", `journey-${index}-text`, item.text, 3)}<label><input type="checkbox" data-current="${index}" ${item.current ? "checked" : ""}> Current chapter</label></div>`).join("");
+    document.getElementById("journey-editors").innerHTML = data.journey.items.map((item, index) => `<div class="editor-card"><div class="editor-card-header"><strong>Achievement ${String(index + 1).padStart(2, "0")}</strong><button type="button" class="remove-button" data-remove="${index}">Remove</button></div>${field("Date", `journey-${index}-date`, item.date)}${field("Title", `journey-${index}-title`, item.title)}${field("Description", `journey-${index}-text`, item.text, 3)}<label><input type="checkbox" data-current="${index}" ${item.current ? "checked" : ""}> Current achievement</label><label class="file-picker"><input data-journey-file="${index}" type="file" accept="image/*,.pdf"><span>${item.image ? "Replace photo or certificate" : "Upload photo or certificate"}</span></label><small class="uploaded-path">${item.image || item.file || ""}</small></div>`).join("");
     document.querySelectorAll("[data-remove]").forEach((button) => button.onclick = () => { data.journey.items.splice(Number(button.dataset.remove), 1); render(); });
+    document.querySelectorAll("[data-journey-file]").forEach((input) => input.onchange = async () => {
+      const file = input.files[0];
+      if (!file) return;
+      try {
+        status.textContent = "Uploading achievement file…";
+        const path = await uploadAsset(file, "achievements", `Upload achievement file ${file.name}`);
+        const index = Number(input.dataset.journeyFile);
+        state.data.journey.items[index].file = path;
+        state.data.journey.items[index].image = file.type.startsWith("image/") ? path : "";
+        render();
+        status.textContent = "Achievement file uploaded — publish to save it.";
+      } catch (error) {
+        status.textContent = error.message;
+        status.className = "save-state status-bad";
+      }
+    });
     document.getElementById("archive-editors").innerHTML = data.archive.length ? data.archive.map((item, index) => `<div class="archive-row"><span><strong>${item.title}</strong><small>${item.kind || "Archive"} · ${item.filename || ""}</small></span><button type="button" class="remove-button" data-delete="${index}">Remove</button></div>`).join("") : '<p class="section-label">No archive items yet.</p>';
     document.querySelectorAll("[data-delete]").forEach((button) => button.onclick = () => { data.archive.splice(Number(button.dataset.delete), 1); render(); });
   }
@@ -131,7 +147,7 @@
     data.hero.title = get("hero-title"); data.hero.intro = get("hero-intro"); data.about.title = get("about-title"); data.about.lead = get("about-lead"); data.about.copy = get("about-copy"); data.journey.title = get("journey-title"); data.journey.intro = get("journey-intro"); data.settings.contact = get("contact"); data.settings.linkedin = get("linkedin"); data.settings.github = get("github"); data.settings.whatsapp = get("whatsapp");
     Object.keys(data.settings.visible).forEach((key) => { data.settings.visible[key] = document.querySelector(`[data-visible="${key}"]`).checked; });
     data.projects = data.projects.map((item, index) => ({ title: document.querySelector(`[data-key="project-${index}-title"]`).value, type: document.querySelector(`[data-key="project-${index}-type"]`).value, text: document.querySelector(`[data-key="project-${index}-text"]`).value, tags: document.querySelector(`[data-key="project-${index}-tags"]`).value.split(",").map((tag) => tag.trim()).filter(Boolean), url: document.querySelector(`[data-key="project-${index}-url"]`).value, image: document.querySelector(`[data-key="project-${index}-image"]`).value }));
-    data.journey.items = data.journey.items.map((item, index) => ({ date: document.querySelector(`[data-key="journey-${index}-date"]`).value, title: document.querySelector(`[data-key="journey-${index}-title"]`).value, text: document.querySelector(`[data-key="journey-${index}-text"]`).value, current: document.querySelector(`[data-current="${index}"]`).checked }));
+    data.journey.items = data.journey.items.map((item, index) => ({ ...item, date: document.querySelector(`[data-key="journey-${index}-date"]`).value, title: document.querySelector(`[data-key="journey-${index}-title"]`).value, text: document.querySelector(`[data-key="journey-${index}-text"]`).value, current: document.querySelector(`[data-current="${index}"]`).checked }));
     return data;
   }
 
