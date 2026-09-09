@@ -26,6 +26,7 @@
   const visibility = { about: "#about", work: "#work", stack: ".stack-section", journey: "#journey", archive: "#additions", contact: "#contact" };
   Object.entries(visibility).forEach(([key, selector]) => { if (data.settings.visible[key] === false) document.querySelector(selector).hidden = true; });
   document.querySelector(".email-link").href = "mailto:" + data.settings.contact; document.querySelector(".email-link").firstChild.textContent = data.settings.contact + " "; const socialLinks = document.querySelectorAll(".socials a"); [data.settings.linkedin, data.settings.github, data.settings.whatsapp].forEach((url, index) => { socialLinks[index].href = url; });
+  if (data.settings.heroImage) document.querySelector(".hero").style.setProperty("--hero-image", `url("${data.settings.heroImage}")`);
   const target = document.getElementById("dynamic-content");
   if (!data.archive.length) target.innerHTML = '<p class="dynamic-empty">The archive is growing. New milestones and field notes will appear here.</p>';
   else target.innerHTML = '<div class="dynamic-grid">' + data.archive.map((item) => `<article class="dynamic-card">${item.image ? `<img src="${item.image}" alt="${item.title || "Omar Elbedawy archive file"}">` : ""}<small class="section-label">${item.kind || "Archive"}</small><h3>${item.title || "Untitled"}</h3><p>${item.description || ""}</p>${item.file ? `<a href="${item.file}" download="${item.filename}" class="project-arrow">Download file ↗</a>` : ""}</article>`).join("") + "</div>";
