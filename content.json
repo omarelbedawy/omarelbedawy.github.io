@@ -3,7 +3,6 @@
     "visible": {
       "about": true,
       "work": true,
-      "stack": true,
       "journey": true,
       "archive": true,
       "contact": true
