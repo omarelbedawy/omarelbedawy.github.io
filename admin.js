@@ -64,11 +64,105 @@
 
   document.getElementById("logout").onclick = () => location.reload();
 
-  const field = (label, key, value, rows = 2) =>
-    `<label>${label}<textarea data-key="${key}" rows="${rows}">${value || ""}</textarea></label>`;
+  const createLabel = (text) => {
+    const label = document.createElement("label");
+    label.appendChild(document.createTextNode(text));
+    return label;
+  };
+
+  const createTextAreaField = (labelText, key, value, rows = 2) => {
+    const label = createLabel(labelText);
+    const textarea = document.createElement("textarea");
+    textarea.setAttribute("data-key", key);
+    textarea.rows = rows;
+    textarea.value = value || "";
+    label.appendChild(textarea);
+    return label;
+  };
+
+  const createProjectEditor = (item, index) => {
+    const card = document.createElement("div");
+    card.className = "editor-card";
+
+    const header = document.createElement("div");
+    header.className = "editor-card-header";
+    const title = document.createElement("strong");
+    title.textContent = `Project ${String(index + 1).padStart(2, "0")}`;
+    header.appendChild(title);
+    card.appendChild(header);
+
+    card.appendChild(createTextAreaField("Project name (HTML allowed)", `project-${index}-title`, item.title));
+    card.appendChild(createTextAreaField("Category", `project-${index}-type`, item.type));
+    card.appendChild(createTextAreaField("Description", `project-${index}-text`, item.text, 3));
+    card.appendChild(
+      createTextAreaField("Technology tags, separated by commas", `project-${index}-tags`, (item.tags || []).join(", "))
+    );
+
+    return card;
+  };
+
+  const createJourneyEditor = (item, index) => {
+    const card = document.createElement("div");
+    card.className = "editor-card";
+
+    const header = document.createElement("div");
+    header.className = "editor-card-header";
+
+    const title = document.createElement("strong");
+    title.textContent = `Chapter ${String(index + 1).padStart(2, "0")}`;
+
+    const remove = document.createElement("button");
+    remove.type = "button";
+    remove.className = "remove-button";
+    remove.dataset.remove = String(index);
+    remove.textContent = "Remove";
+
+    header.appendChild(title);
+    header.appendChild(remove);
+    card.appendChild(header);
+
+    card.appendChild(createTextAreaField("Date", `journey-${index}-date`, item.date));
+    card.appendChild(createTextAreaField("Title", `journey-${index}-title`, item.title));
+    card.appendChild(createTextAreaField("Description", `journey-${index}-text`, item.text, 3));
+
+    const currentLabel = document.createElement("label");
+    const currentInput = document.createElement("input");
+    currentInput.type = "checkbox";
+    currentInput.dataset.current = String(index);
+    currentInput.checked = Boolean(item.current);
+    currentLabel.appendChild(currentInput);
+    currentLabel.appendChild(document.createTextNode(" Current chapter"));
+    card.appendChild(currentLabel);
+
+    return card;
+  };
+
+  const createArchiveRow = (item, index) => {
+    const row = document.createElement("div");
+    row.className = "archive-row";
+
+    const span = document.createElement("span");
+    const title = document.createElement("strong");
+    title.textContent = item.title || "Untitled";
+    const small = document.createElement("small");
+    small.textContent = `${item.kind || "Archive"} · ${item.filename || ""}`;
+    span.appendChild(title);
+    span.appendChild(small);
+
+    const remove = document.createElement("button");
+    remove.type = "button";
+    remove.className = "remove-button";
+    remove.dataset.delete = String(index);
+    remove.textContent = "Remove";
+
+    row.appendChild(span);
+    row.appendChild(remove);
+    return row;
+  };
 
   function render() {
     const data = state.data;
+
     [
       ["hero-title", data.hero.title],
       ["hero-intro", data.hero.intro],
@@ -91,19 +185,17 @@
       if (toggle) toggle.checked = value;
     });
 
-    document.getElementById("project-editors").innerHTML = data.projects
-      .map(
-        (item, index) =>
-          `<div class="editor-card"><div class="editor-card-header"><strong>Project ${String(index + 1).padStart(2, "0")}</strong></div>${field("Project name (HTML allowed)", `project-${index}-title`, item.title)}${field("Category", `project-${index}-type`, item.type)}${field("Description", `project-${index}-text`, item.text, 3)}${field("Technology tags, separated by commas", `project-${index}-tags`, item.tags.join(", "))}</div>`
-      )
-      .join("");
+    const projectEditors = document.getElementById("project-editors");
+    projectEditors.textContent = "";
+    data.projects.forEach((item, index) => {
+      projectEditors.appendChild(createProjectEditor(item, index));
+    });
 
-    document.getElementById("journey-editors").innerHTML = data.journey.items
-      .map(
-        (item, index) =>
-          `<div class="editor-card"><div class="editor-card-header"><strong>Chapter ${String(index + 1).padStart(2, "0")}</strong><button type="button" class="remove-button" data-remove="${index}">Remove</button></div>${field("Date", `journey-${index}-date`, item.date)}${field("Title", `journey-${index}-title`, item.title)}${field("Description", `journey-${index}-text`, item.text, 3)}<label><input type="checkbox" data-current="${index}" ${item.current ? "checked" : ""}> Current chapter</label></div>`
-      )
-      .join("");
+    const journeyEditors = document.getElementById("journey-editors");
+    journeyEditors.textContent = "";
+    data.journey.items.forEach((item, index) => {
+      journeyEditors.appendChild(createJourneyEditor(item, index));
+    });
 
     document.querySelectorAll("[data-remove]").forEach((button) => {
       button.onclick = () => {
@@ -112,14 +204,18 @@
       };
     });
 
-    document.getElementById("archive-editors").innerHTML = data.archive.length
-      ? data.archive
-          .map(
-            (item, index) =>
-              `<div class="archive-row"><span><strong>${item.title}</strong><small>${item.kind || "Archive"} · ${item.filename || ""}</small></span><button type="button" class="remove-button" data-delete="${index}">Remove</button></div>`
-          )
-          .join("")
-      : '<p class="section-label">No archive items yet.</p>';
+    const archiveEditors = document.getElementById("archive-editors");
+    archiveEditors.textContent = "";
+    if (data.archive.length) {
+      data.archive.forEach((item, index) => {
+        archiveEditors.appendChild(createArchiveRow(item, index));
+      });
+    } else {
+      const empty = document.createElement("p");
+      empty.className = "section-label";
+      empty.textContent = "No archive items yet.";
+      archiveEditors.appendChild(empty);
+    }
 
     document.querySelectorAll("[data-delete]").forEach((button) => {
       button.onclick = () => {
@@ -154,7 +250,8 @@
     data.settings.whatsapp = get("whatsapp");
 
     Object.keys(data.settings.visible).forEach((key) => {
-      data.settings.visible[key] = document.querySelector(`[data-visible="${key}"]`).checked;
+      const toggle = document.querySelector(`[data-visible="${key}"]`);
+      if (toggle) data.settings.visible[key] = toggle.checked;
     });
 
     data.projects = data.projects.map((item, index) => ({
