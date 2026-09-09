@@ -1,17 +1,49 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Omar Elbedawy — Studio</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="admin.css"></head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Omar Elbedawy — Studio</title>
+  <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="/favicon/site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
 <body class="admin-body">
-  <main id="login" class="login-card"><span class="brand-mark">OE</span><div class="section-label">/ PRIVATE STUDIO</div><h1>Your story.<br><em>Your control.</em></h1><p>Sign in to edit and publish every part of your portfolio.</p><form id="login-form"><label>Studio password<input id="password" type="password" required autocomplete="current-password"></label><button class="button button-primary" type="submit">Open studio <span>↗</span></button><small id="login-status"></small></form></main>
-  <div id="dashboard" hidden><header class="studio-header"><a class="brand" href="/"><span>OE</span><b>Omar Elbedawy · Studio</b></a><div><span class="save-state" id="save-state">Draft not published</span><button id="logout" class="text-button">Lock studio</button></div></header><main class="studio-main"><div class="studio-intro"><div><div class="section-label">/ CONTENT CONTROL</div><h1>Make it <em>yours.</em></h1></div><p>Edit with fields, preview instantly, then publish globally when it feels right.</p></div>
-    <form id="content-form">
-      <section class="editor-section"><div class="editor-heading"><span>01</span><div><h2>Hero</h2><p>The first impression.</p></div></div><div class="field-grid"><label>Headline<textarea name="hero-title" rows="2"></textarea><small>Use &lt;em&gt;around words&lt;/em&gt; for the italic accent.</small></label><label>Introduction<textarea name="hero-intro" rows="4"></textarea></label></div></section>
-      <section class="editor-section"><div class="editor-heading"><span>02</span><div><h2>About</h2><p>Your point of view.</p></div></div><div class="field-grid"><label>Heading<textarea name="about-title" rows="2"></textarea></label><label>Lead<textarea name="about-lead" rows="3"></textarea></label><label class="full">Body<textarea name="about-copy" rows="4"></textarea></label></div></section>
-      <section class="editor-section"><div class="editor-heading"><span>03</span><div><h2>Selected work</h2><p>Show the work you want people to remember.</p></div></div><div id="project-editors"></div></section>
-      <section class="editor-section"><div class="editor-heading"><span>04</span><div><h2>Roadmap</h2><p>Your journey, in chapters.</p></div></div><label>Section heading<input name="journey-title"></label><label>Section introduction<textarea name="journey-intro" rows="2"></textarea></label><div id="journey-editors"></div><button type="button" id="add-journey" class="outline-button">+ Add roadmap chapter</button></section>
-      <section class="editor-section"><div class="editor-heading"><span>05</span><div><h2>Visibility</h2><p>Choose what is public.</p></div></div><div class="toggle-grid"><label><input type="checkbox" data-visible="about"><span>About</span></label><label><input type="checkbox" data-visible="work"><span>Work</span></label><label><input type="checkbox" data-visible="stack"><span>Toolkit</span></label><label><input type="checkbox" data-visible="journey"><span>Roadmap</span></label><label><input type="checkbox" data-visible="archive"><span>Archive</span></label><label><input type="checkbox" data-visible="contact"><span>Contact</span></label></div></section>
-      <section class="editor-section"><div class="editor-heading"><span>06</span><div><h2>Contact</h2><p>Where opportunities find you.</p></div></div><div class="field-grid"><label>Email<input name="contact"></label><label>LinkedIn<input name="linkedin"></label><label>GitHub<input name="github"></label><label>WhatsApp<input name="whatsapp"></label></div></section>
-      <section class="editor-section"><div class="editor-heading"><span>07</span><div><h2>Archive</h2><p>Achievements, certificates, and moments.</p></div></div><div class="upload-row"><label>Title<input id="file-title" placeholder="Stanford program certificate"></label><label>Short note<input id="file-description" placeholder="A summer that widened my view"></label><label class="file-picker"><input id="file" type="file"><span id="file-label">Choose image, PDF, video, or any file</span></label><button type="button" id="add-file" class="outline-button">Add to archive</button></div><div id="archive-editors"></div></section>
-      <div class="bottom-actions"><button class="button button-primary" type="submit">Publish changes globally <span>↗</span></button><a class="outline-button" href="/" target="_blank">Preview public site ↗</a></div>
-    </form></main></div><script src="admin.js"></script>
-</body></html>
+  <main id="login" class="login-card">
+    <span class="brand-mark">OE</span>
+    <div class="section-label">/ PRIVATE STUDIO</div>
+    <h1>Your story.<br><em>Your control.</em></h1>
+    <p>Sign in to edit and publish every part of your portfolio.</p>
+    <form id="login-form">
+      <label>Studio password<input id="password" type="password" required autocomplete="current-password"></label>
+      <button class="button button-primary" type="submit">Open studio <span>↗</span></button>
+      <small id="login-status"></small>
+    </form>
+  </main>
+
+  <div id="dashboard" hidden>
+    <header class="studio-header"><a class="brand" href="/"><span>OE</span><b>Omar Elbedawy · Studio</b></a><div><span class="save-state" id="save-state">Draft not published</span><button id="logout" class="text-button">Lock studio</button></div></header>
+    <main class="studio-main"><div class="studio-intro"><div><div class="section-label">/ CONTENT CONTROL</div><h1>Make it <em>yours.</em></h1></div><p>Edit with fields, preview instantly, then publish globally when it feels right.</p></div>
+      <form id="content-form">
+        <section class="editor-section"><div class="editor-heading"><span>01</span><div><h2>Hero</h2><p>The first impression.</p></div></div><div class="field-grid"><label>Headline<textarea name="hero-title" rows="2"></textarea><small>Use &lt;em&gt;around words&lt;/em&gt; for the italic accent.</small></label><label>Introduction<textarea name="hero-intro" rows="4"></textarea></label></div></section>
+        <section class="editor-section"><div class="editor-heading"><span>02</span><div><h2>About</h2><p>Your point of view.</p></div></div><div class="field-grid"><label>Heading<textarea name="about-title" rows="2"></textarea></label><label>Lead<textarea name="about-lead" rows="3"></textarea></label><label class="full">Body<textarea name="about-copy" rows="4"></textarea></label></div></section>
+        <section class="editor-section"><div class="editor-heading"><span>03</span><div><h2>Selected work</h2><p>Show the work you want people to remember.</p></div></div><div id="project-editors"></div></section>
+        <section class="editor-section"><div class="editor-heading"><span>04</span><div><h2>Roadmap</h2><p>Your journey, in chapters.</p></div></div><label>Section heading<input name="journey-title"></label><label>Section introduction<textarea name="journey-intro" rows="2"></textarea></label><div id="journey-editors"></div><button type="button" id="add-journey" class="outline-button">+ Add roadmap chapter</button></section>
+        <section class="editor-section"><div class="editor-heading"><span>05</span><div><h2>Visibility</h2><p>Choose what is public.</p></div></div><div class="toggle-grid"><label><input type="checkbox" data-visible="about"><span>About</span></label><label><input type="checkbox" data-visible="work"><span>Work</span></label><label><input type="checkbox" data-visible="stack"><span>Toolkit</span></label><label><input type="checkbox" data-visible="journey"><span>Roadmap</span></label><label><input type="checkbox" data-visible="archive"><span>Archive</span></label><label><input type="checkbox" data-visible="contact"><span>Contact</span></label></div></section>
+        <section class="editor-section"><div class="editor-heading"><span>06</span><div><h2>Contact</h2><p>Where opportunities find you.</p></div></div><div class="field-grid"><label>Email<input name="contact"></label><label>LinkedIn<input name="linkedin"></label><label>GitHub<input name="github"></label><label>WhatsApp<input name="whatsapp"></label></div></section>
+        <section class="editor-section"><div class="editor-heading"><span>07</span><div><h2>Archive</h2><p>Achievements, certificates, and moments.</p></div></div><div class="upload-row"><label>Title<input id="file-title" placeholder="Stanford program certificate"></label><label>Short note<input id="file-description" placeholder="A summer that widened my view"></label><label class="file-picker"><input id="file" type="file"><span id="file-label">Choose image, PDF, video, or any file</span></label><button type="button" id="add-file" class="outline-button">Add to archive</button></div><div id="archive-editors"></div></section>
+        <div class="bottom-actions"><button class="button button-primary" type="submit">Publish changes globally <span>↗</span></button><a class="outline-button" href="/" target="_blank">Preview public site ↗</a></div>
+      </form>
+    </main>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
