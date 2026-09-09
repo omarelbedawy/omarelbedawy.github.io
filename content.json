@@ -15,13 +15,13 @@
     "heroImage": ""
   },
   "hero": {
-    "title": "I build useful things<br><em>for real people.</em>",
-    "intro": "I’m Omar, a full-stack engineer and top-ranking STEM scholar from Egypt. I turn ambitious ideas into thoughtful products across web architecture, infrastructure, and human-centered AI."
+  "title": "I build useful things for real people.",
+    "intro": "I’m Omar, a full-stack builder and top-ranking STEM scholar from Egypt. I turn ambitious ideas into thoughtful products across web architecture, infrastructure, and human-centered AI."
   },
   "about": {
-    "title": "Technical depth.<br><em>Human context.</em>",
+    "title": "Technical depth. Human context.",
     "lead": "The best technology feels inevitable: quietly powerful, beautifully considered, and made for the person on the other side of the screen.",
-    "copy": "From a factory floor to a funded AI pitch, I’ve learned that good engineering is less about showing off complexity and more about earning trust. I bring that mindset to every system, interface, and team I touch."
+    "copy": "From a factory floor to a funded AI pitch, I’ve learned that good systems are less about showing off complexity and more about earning trust. I bring that mindset to every product, interface, and team I touch."
   },
   "journey": {
     "title": "Still becoming.",
@@ -34,9 +34,9 @@
     ]
   },
   "projects": [
-    { "title": "PixelGuard", "type": "NYAS · AI SAFETY", "text": "A privacy-first anti-scraping SaaS that injects adversarial noise into images to disrupt AI facial-recognition systems.", "tags": ["Adversarial ML", "SaaS", "Privacy"] },
-    { "title": "Hajiz <span class='arabic'>حاجز</span>", "type": "TRAVEL · BACKEND", "text": "A travel-sync backend connecting real-time aviation APIs with hotel reservations, helping travelers avoid costly no-show penalties.", "tags": ["Node.js", "APIs", "PostgreSQL"] },
-    { "title": "Commerce OS", "type": "DECI · CAPSTONE", "text": "A production-minded e-commerce platform designed as a scalable system, orchestrated with Docker and Kubernetes.", "tags": ["Docker", "Kubernetes", "MERN"] }
+    { "title": "PixelGuard", "type": "NYAS · AI SAFETY", "text": "A privacy-first anti-scraping SaaS that injects adversarial noise into images to disrupt AI facial-recognition systems.", "tags": ["Adversarial ML", "SaaS", "Privacy"], "url": "", "image": "" },
+    { "title": "Hajiz", "type": "TRAVEL · BACKEND", "text": "A travel-sync backend connecting real-time aviation APIs with hotel reservations, helping travelers avoid costly no-show penalties.", "tags": ["Node.js", "APIs", "PostgreSQL"], "url": "", "image": "" },
+    { "title": "Commerce OS", "type": "DECI · CAPSTONE", "text": "A production-minded e-commerce platform designed as a scalable system, orchestrated with Docker and Kubernetes.", "tags": ["Docker", "Kubernetes", "MERN"], "url": "", "image": "" }
   ],
   "archive": []
 }
