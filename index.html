@@ -40,7 +40,7 @@
   </div>
 
   <header class="site-header">
-    <a class="brand" href="#top" aria-label="Omar Elbedawy home"><span id="studio-trigger" title="">OE</span><b>Omar Elbedawy</b></a>
+    <a class="brand" href="#top" aria-label="Omar Elbedawy home"><img id="studio-trigger" class="brand-mark" src="/favicon/web-app-manifest-512x512.png" alt="Omar Elbedawy" title=""></a>
     <nav class="desktop-nav" aria-label="Primary navigation">
       <a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a>
     </nav>
@@ -50,12 +50,29 @@
 
   <main id="top">
     <section class="hero" id="hero-section">
-      <div class="hero-copy reveal section-wrap">
-        <p class="eyebrow"><i></i> STEM scholar · builder · curious human</p>
-        <h1 id="hero-title">I build useful things for real people.</h1>
-        <p class="hero-intro" id="hero-intro">I'm Omar — a full-stack builder and STEM scholar from Egypt, turning ambitious ideas into real products.</p>
-        <div class="hero-actions"><a class="button button-primary" href="#work">View projects <span>↘</span></a><a class="button button-ghost" href="Omar Elbedawy_Resume_Cambria_A4.pdf" download>Download resume <span>↓</span></a></div>
-        <div class="hero-meta"><span><b>01</b> Based in Kafr El-Sheikh, Egypt</span><span><b>02</b> Open to CS / AI opportunities</span></div>
+      <div class="hero-grid section-wrap">
+        <div class="hero-copy reveal">
+          <p class="eyebrow"><i></i> STEM scholar · builder · curious human</p>
+          <h1 id="hero-title">I build useful things for real people.</h1>
+          <p class="hero-intro" id="hero-intro">I'm Omar — a full-stack builder and STEM scholar from Egypt, turning ambitious ideas into real products.</p>
+          <div class="hero-actions"><a class="button button-primary" href="#work">View projects <span>↘</span></a><a class="button button-ghost" href="Omar Elbedawy_Resume_Cambria_A4.pdf" download>Download resume <span>↓</span></a></div>
+          <div class="hero-socials">
+            <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" aria-label="LinkedIn" data-social="linkedin">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.94 5a1.94 1.94 0 1 1-3.88 0 1.94 1.94 0 0 1 3.88 0ZM3.4 8.75h3.47V21H3.4V8.75Zm6.2 0h3.32v1.67h.05c.46-.88 1.6-1.8 3.3-1.8 3.53 0 4.18 2.32 4.18 5.34V21h-3.47v-5.4c0-1.29-.02-2.94-1.79-2.94-1.8 0-2.08 1.4-2.08 2.85V21H9.6V8.75Z"/></svg>
+              <span>LinkedIn</span>
+            </a>
+            <a href="https://github.com/" target="_blank" rel="noreferrer" aria-label="GitHub" data-social="github">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.2c0 4.49 2.87 8.3 6.84 9.64.5.1.68-.22.68-.49 0-.24-.01-1.03-.01-1.87-2.78.51-3.5-.7-3.72-1.34-.13-.33-.68-1.34-1.16-1.62-.4-.22-.97-.75-.01-.76.9-.02 1.54.84 1.76 1.19 1.03 1.75 2.67 1.26 3.32.96.1-.75.4-1.26.72-1.55-2.55-.29-5.23-1.29-5.23-5.73 0-1.27.44-2.3 1.16-3.12-.12-.29-.5-1.48.11-3.08 0 0 .95-.31 3.1 1.19a10.5 10.5 0 0 1 5.64 0c2.15-1.5 3.1-1.19 3.1-1.19.61 1.6.23 2.79.11 3.08.72.82 1.16 1.84 1.16 3.12 0 4.45-2.69 5.44-5.25 5.72.42.37.78 1.08.78 2.18 0 1.58-.01 2.85-.01 3.24 0 .27.18.6.69.49A10.21 10.21 0 0 0 22 12.2C22 6.58 17.52 2 12 2Z"/></svg>
+              <span>GitHub</span>
+            </a>
+            <a href="https://wa.me/201000000000" target="_blank" rel="noreferrer" aria-label="WhatsApp" data-social="whatsapp">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.22 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35ZM12.02 2C6.5 2 2 6.48 2 12c0 1.9.53 3.68 1.44 5.2L2 22l4.94-1.4A9.96 9.96 0 0 0 12.02 22C17.55 22 22 17.52 22 12S17.55 2 12.02 2Zm0 18.18c-1.72 0-3.32-.5-4.68-1.35l-.34-.2-2.93.84.83-2.86-.22-.35a8.16 8.16 0 0 1-1.28-4.36c0-4.53 3.7-8.2 8.62-8.2 4.6 0 8.34 3.67 8.34 8.2 0 4.53-3.74 8.28-8.34 8.28Z"/></svg>
+              <span>WhatsApp</span>
+            </a>
+          </div>
+          <div class="hero-meta"><span><b>01</b> Based in Kafr El-Sheikh, Egypt</span><span><b>02</b> Open to CS / AI opportunities</span></div>
+        </div>
+        <div class="hero-photo" aria-hidden="true"></div>
       </div>
     </section>
 
@@ -76,12 +93,11 @@
       </div>
     </section>
 
-    <section class="section-wrap stack-section"><div class="section-label">/ 03 — The toolkit</div><div class="stack-layout"><h2>Tools are only half the story.</h2><div class="stack-groups"><div class="stack-group"><h3>Software & Web <span>01</span></h3><div class="skill-list"><span>React</span><span>Next.js</span><span>Node.js</span><span>TypeScript</span><span>Prisma</span><span>PostgreSQL</span><span>MongoDB</span><span>Vercel</span></div></div><div class="stack-group"><h3>DevOps & Hardware <span>02</span></h3><div class="skill-list"><span>Docker</span><span>Kubernetes</span><span>Linux</span><span>Git</span><span>ESP32</span><span>Arduino</span><span>REST APIs</span><span>CI / CD</span></div></div></div></div></section>
+    <section class="section-wrap additions-section" id="achievements"><div class="section-label">/ 03 — Achievements</div><div id="dynamic-content"></div></section>
 
     <section class="section-wrap journey-section" id="journey"><div class="section-heading"><div><div class="section-label">/ 04 — Milestones</div><h2 id="journey-title">Still becoming.</h2></div><p id="journey-intro">The experiences that shaped how I think.</p></div><div class="timeline" id="timeline"></div></section>
-    <section class="section-wrap additions-section" id="additions"><div class="section-label">/ 05 — More from the archive</div><div id="dynamic-content"></div></section>
 
-    <section class="contact-section" id="contact"><div class="contact-inner section-wrap"><div class="section-label">/ 06 — Start a conversation</div><h2>Have a hard problem? Let’s make it clear.</h2><p>Building a team, reviewing an application, or just curious? I'd love to hear from you.</p><a class="email-link" href="mailto:elbedawyomar2009@gmail.com">elbedawyomar2009@gmail.com <span>↗</span></a>
+    <section class="contact-section" id="contact"><div class="contact-inner section-wrap"><div class="section-label">/ 05 — Start a conversation</div><h2>Have a hard problem? Let’s make it clear.</h2><p>Building a team, reviewing an application, or just curious? I'd love to hear from you.</p><a class="email-link" href="mailto:elbedawyomar2009@gmail.com">elbedawyomar2009@gmail.com <span>↗</span></a>
       <div class="socials">
         <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" aria-label="LinkedIn" data-social="linkedin">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.94 5a1.94 1.94 0 1 1-3.88 0 1.94 1.94 0 0 1 3.88 0ZM3.4 8.75h3.47V21H3.4V8.75Zm6.2 0h3.32v1.67h.05c.46-.88 1.6-1.8 3.3-1.8 3.53 0 4.18 2.32 4.18 5.34V21h-3.47v-5.4c0-1.29-.02-2.94-1.79-2.94-1.8 0-2.08 1.4-2.08 2.85V21H9.6V8.75Z"/></svg>
