@@ -31,19 +31,25 @@
         "date": "2024 — NOW",
         "title": "Kafr El-Sheikh STEM High School",
         "text": "Top-ranking STEM scholar exploring full-stack systems and human-centered AI while preparing for a world-class CS education.",
-        "current": true
+        "current": true,
+        "file": "/uploads/achievements/1788964440495-images--11-.jfif",
+        "image": "/uploads/achievements/1788964440495-images--11-.jfif"
       },
       {
         "date": "2024",
         "title": "SPCS · Stanford Pre-Collegiate Studies",
         "text": "Summer program participant, learning alongside ambitious students and widening my view of what is possible.",
-        "current": false
+        "current": false,
+        "file": "/uploads/achievements/1788964458788-SPCS.pdf",
+        "image": ""
       },
       {
         "date": "2023 — 2024",
         "title": "DECI · Digital Egypt Cubs Initiative",
         "text": "Built a scalable e-commerce capstone and strengthened my foundations in architecture, deployment, and collaboration.",
-        "current": false
+        "current": false,
+        "file": "/uploads/achievements/1788964473097-Deci-L4.pdf",
+        "image": ""
       },
       {
         "date": "ONGOING",
@@ -64,7 +70,7 @@
         "Privacy"
       ],
       "url": "",
-      "image": ""
+      "image": "/uploads/projects/1788964136092-PixelGuard-Logo.png"
     },
     {
       "title": "Hajiz",
@@ -76,7 +82,7 @@
         "PostgreSQL"
       ],
       "url": "",
-      "image": "/uploads/projects/1788958588499-299667479_592902608910083_3559690422130925635_n.jpg"
+      "image": "/uploads/projects/1788964150016-White-text.jpeg"
     },
     {
       "title": "Commerce OS",
@@ -88,7 +94,7 @@
         "MERN"
       ],
       "url": "",
-      "image": ""
+      "image": "/uploads/projects/1788964291066-Screenshot-2026-09-09-173106.png"
     }
   ],
   "archive": []
