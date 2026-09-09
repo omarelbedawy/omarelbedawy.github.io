@@ -165,6 +165,19 @@
       status.className = "save-state status-bad";
     }
   };
+  document.getElementById("brand-file").onchange = async (event) => {
+    const file = event.target.files[0];
+    if (!file) return;
+    try {
+      status.textContent = "Uploading navbar signature…";
+      state.data.settings.brandMark = await uploadAsset(file, "brand", `Upload navbar signature ${file.name}`);
+      render();
+      status.textContent = "Signature uploaded — publish to save it.";
+    } catch (error) {
+      status.textContent = error.message;
+      status.className = "save-state status-bad";
+    }
+  };
   document.getElementById("file").onchange = (event) => { document.getElementById("file-label").textContent = event.target.files[0] ? event.target.files[0].name : "Choose image, PDF, video, or any file"; };
   document.getElementById("add-file").onclick = async () => {
     const file = document.getElementById("file").files[0];
