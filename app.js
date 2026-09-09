@@ -91,8 +91,9 @@
     document.querySelectorAll(`[data-social="${key}"]`).forEach((a) => { a.href = url; });
   });
 
-  // Hero image now renders as a big, clear full-bleed background — no floating photo card.
+  // Hero image now renders as a big, clear photo panel on the right — no full-bleed overlay.
   if (data.settings.heroImage) document.getElementById("hero-section").style.setProperty("--hero-image", `url("${data.settings.heroImage}")`);
+  if (data.settings.brandMark) document.querySelector(".brand-mark").src = data.settings.brandMark;
 
   const target = document.getElementById("dynamic-content");
   if (!data.archive.length) {
